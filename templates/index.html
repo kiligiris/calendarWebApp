@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <div id="date">
+        <button>&lt;</button>
+        <h2 id="year">{{ date.year }}年</h2>
+        <h1 id="month">{{ date.month }}月</h1>
+        <h2 id="a_month">{{ a_month }}</h2>
+        <button>&gt;</button>
+    </div>
+    <div id="calendar">
+        <table>
+            <tr>
+                {# [表記, 表記の色] #}
+                {% set week = [
+                    ["日", "red"],
+                    ["月", "black"],
+                    ["火", "black"],
+                    ["水", "black"],
+                    ["木", "black"],
+                    ["金", "black"],
+                    ["土", "blue"]
+                ] %}
+                {% for day in week %}
+                <th class="{{ day[1] }} border">{{ day[0] }}</th>
+                {% endfor %}
+            </tr>
+            {% for w in calendar %}
+            <tr>
+                {% for i in range(7) %}
+                {% if w[i] != 0 %}
+                <td class="border">
+                    <p class="{{ week[i][1] }}">{{ w[i] }}</p>
+                </td>
+                {% else %}
+                <td class="border"><p></p></td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    <!-- <img src="{{ url_for('static', filename='img/cat.jpg') }}" alt="猫"> -->
+</body>
+</html>

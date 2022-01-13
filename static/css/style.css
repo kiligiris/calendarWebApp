@@ -1,0 +1,62 @@
+body {
+    background: #F4E7D3;
+}
+
+#date {
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+button {
+    font-size: 50px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#year {
+    text-align: center;
+}
+
+#month {
+    text-align: center;
+}
+
+#calendar {
+    width: auto;
+}
+
+table {
+    width: auto;
+    margin: auto;
+    font-size: 28px;
+    border-collapse: collapse;
+}
+
+.border {
+    border: solid 1px #333;
+}
+
+.black {
+    color: black;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+td {
+    width: 80px;
+    text-align: center;
+}
+
+
+

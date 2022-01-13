@@ -1,0 +1,24 @@
+CREATE TABLE user(
+    user_num  INT NOT NULL AUTO_INCREMENT,
+    userID    VARCHAR(50),
+    password  VARCHAR(50),
+    guest     INT,
+    PRIMARY KEY (user_num),
+    UNIQUE KEY userID (userID)
+);
+
+CREATE TABLE holiday(
+    h_date date NOT NULL,
+    h_name VARCHAR(50),
+    PRIMARY KEY (h_date)
+);
+
+CREATE TABLE schedule(
+    user_num INT NOT NULL,
+    s_num INT NOT NULL,
+    s_datetime DATETIME,
+    s_name VARCHAR(50),
+    s_remarks VARCHAR(256),
+    PRIMARY KEY (user_num,s_num),
+    FOREIGN KEY (user_num) REFERENCES user(user_num)
+);
