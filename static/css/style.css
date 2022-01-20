@@ -10,20 +10,25 @@ body {
     align-items: center;
 }
 
-button {
-    font-size: 50px;
-    border: none;
-    outline: none;
-    background: transparent;
-    cursor: pointer;
+#next_month, #last_month {
+    margin: 0;
+    font-size: 30px;
+    color: #000;
+    text-decoration: none;
 }
 
 #year {
+    margin: 0;
     text-align: center;
 }
 
 #month {
+    margin: 0;
     text-align: center;
+}
+
+#a_month {
+    margin: 0;
 }
 
 #calendar {

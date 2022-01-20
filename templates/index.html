@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カレンダー</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        $(function(){
+            $("#last_month").on("click", function() {
+                //window.location.href = "{{ last_url }}";
+            });
+            $("#next_month").on("click", function() {
+                //window.location.href = "{{ next_url }}";
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="date">
-        <button>&lt;</button>
+        <p><a href="{{ last_url }}" id="last_month">&lt;</a></p>
         <h2 id="year">{{ date.year }}年</h2>
         <h1 id="month">{{ date.month }}月</h1>
-        <h2 id="a_month">{{ a_month }}</h2>
-        <button>&gt;</button>
+        {% set a_month = [
+            "January","February","March","April","May","June","July","August","September","October","November","December"
+        ] %}
+        <h2 id="a_month">{{ a_month[date.month - 1] }}</h2>
+        <p><a href="{{ next_url }}" id="next_month">&gt;</a></p>
     </div>
     <div id="calendar">
         <table>
@@ -38,7 +52,11 @@
                 {% for i in range(7) %}
                 {% if w[i] != 0 %}
                 <td class="border">
+                    {% if w[i] in holiday  %}
+                    <p class="red">{{ w[i] }}</p>
+                    {% else %}
                     <p class="{{ week[i][1] }}">{{ w[i] }}</p>
+                    {% endif %}
                 </td>
                 {% else %}
                 <td class="border"><p></p></td>

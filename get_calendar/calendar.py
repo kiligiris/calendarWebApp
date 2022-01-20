@@ -49,6 +49,24 @@ def get_days(year,month):
         return DAYS[month - 1] + 1
     return DAYS[month - 1]
 
+# 指定された月日の来月までの日数を返す
+def m_days_left(month,day):
+    return DAYS[month - 1] - day
+
+# 年月から前月の年月を返す
+def last_month(year,month):
+    if month == 1:
+        return year - 1, 12
+    else:
+        return year, month - 1
+
+# 年月から来月の年月を返す
+def next_month(year,month):
+    if month == 12:
+        return year + 1,1
+    else:
+        return year, month + 1
+
 # 指定した年月のカレンダーをリストで返す
 def get_calendar(year,month):
     days = get_days(year,month)

@@ -9,6 +9,3 @@ class User(Base):
     userID = Column(String(50), unique=True)
     password = Column(String(50))
     guest = Column(Integer)
-
-    def id_pass(self): 
-        return f"{self.user_num} {self.userID}"
