@@ -30,5 +30,5 @@ def h_add(**kwargs):
     funcs = [
         h_add_func(k, d)
         for k, d in kwargs.items()
-        ]
+    ]
     return try_for(funcs)

@@ -1,6 +1,6 @@
 import requests
 import datetime
-from get_calendar.calendar import last_month, next_month
+from get_calendar.calendar import next_month
 from database.crud import h_select, h_add
 
 # 年月を受け取り祝日の{日付 : 名前}を返す関数
